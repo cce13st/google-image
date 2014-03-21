@@ -4,10 +4,10 @@ from pykakao import kakaotalk
 from PIL import Image
 import random
 import os
-from google_image import go
+from google_image import image_search
 
 img_cnt = 0
-kakao = kakaotalk("d857a9a87a5e43218050f8aad86f5da08019e44df22c4e6788a8bc7b03478294", "1", 4507713)
+kakao = kakaotalk("b92b9df63e1b40c78dccdd5347e5e1eef8dd336202194690a3574e1ad2e1e98a", "1", 4507713)
 
 if kakao.login()["body"]["status"] == 0:
     while True:
@@ -35,7 +35,7 @@ if kakao.login()["body"]["status"] == 0:
 		if len(message) < 11:
 		    kakao.write(groupid, "image load fail")
 		    continue
-		if not go(message[11:], '', img_cnt):
+		if not image_search(message[11:], '', img_cnt):
 		    kakao.write(groupid, "image load fail")
 		    continue
 
